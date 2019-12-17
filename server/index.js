@@ -13,39 +13,44 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.listen(port, () => { console.log(`Listening from port ${port}`)});
 
 // mainplayer
-app.get('/api/mainplayer/songs', (req, res) => {
-  res.redirect('http://13.52.242.67/api/mainplayer/songs');
+app.get('/api/mainplayer/songs/:id', (req, res) => {
+  res.redirect(`http://13.52.242.67/api/mainplayer/songs/${req.params.id}`);
 });
 
 // comments
-app.get('/0.bundle.js', (req, res) => {
-  Axios.get('http://52.53.152.162/0.bundle.js')
-  .then((data) => {
-    res.send(data.data);
-  })
-  .catch((err) => {
-    res.status(400).send();
-  })
+app.get('/1.bundle.js', (req, res) => {
+  res.redirect('http://13.52.80.254/1.bundle.js');
+})
+
+app.get('/2.bundle.js', (req, res) => {
+  res.redirect('http://13.52.80.254/2.bundle.js');
 })
 
 app.get('/api/comments/songs', (req, res) => {
-  res.redirect('http://52.53.152.162/api/comments/songs');
+  res.redirect('http://13.52.80.254/api/comments/songs');
+});
+
+app.get('/api/comments/comments', (req, res) => {
+  res.redirect('http://13.52.80.254/api/comments/comments');
 });
 
 app.post('/api/comments/comments', (req, res) => {
-  res.redirect('http://52.53.152.162/api/comments/comments');
+  res.redirect('http://13.52.80.254/api/comments/comments');
 });
 
-app.post('/api/comments/replies', (req, res) => {
-  res.redirect('http://52.53.152.162/api/comments/replies');
+app.get('/api/comments/replies', (req, res) => {
+  res.redirect('http://13.52.80.254/api/comments/replies');
 });
+
+// breaks bundle connection if before comments
+app.use('/:id', express.static(path.join(__dirname, '../public/')));
 
 // sidebar
-app.get('/api/sidebar/songs', (req, res) => {
-  res.redirect('http://52.9.251.132/api/sidebar/songs');
+app.get('/api/sidebar/songs/:id', (req, res) => {
+  res.redirect(`http://52.9.251.132/api/sidebar/songs/${req.params.id}`);
 });
 
 // toolbar
-app.get('/api/toolbar/songs', (req, res) => {
-  res.redirect('http://52.53.160.124/api/toolbar/songs');
+app.get('/api/toolbar/songs/:id', (req, res) => {
+  res.redirect(`http://52.53.160.124/api/toolbar/songs/${req.params.id}`);
 });
