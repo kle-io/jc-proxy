@@ -1,0 +1,42 @@
+#menu {
+  background-image: url("menu.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  position: fixed;
+  overflow: hidden;
+  top: -1px;
+  height: 46px;
+  width: 100%;
+  z-index: 20;
+  left: 0px;
+}
+#mainplayer {
+  position: relative;
+  left: -1px;
+  top: -3px;
+}
+#center {
+  width: 1240px;
+  position: relative;
+  margin: auto;
+  top: -115px;
+  left: -1px;
+}
+#comments {
+  position: absolute;
+  width: 820px;
+  left: 25px;
+  padding-bottom: 80px;
+  padding-right: 33px;
+  border-right: 1px solid #f2f2f2;
+}
+#sidebar {
+  position: absolute;
+  right: 30px;
+  top: -15px;
+}
+#toolbar {
+  position: absolute;
+  overflow: hidden;
+  left: -2px;
+}
